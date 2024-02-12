@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+void realizarOperacion(int num1, int num2, char operador);
+
+void imprimirResultado(int resultado);
+
+int main() {
+    int cantidadOperaciones;
+    int num1, num2;
+    char operador;
+
+    cout << "Ingrese la cantidad de operaciones a realizar: ";
+    cin >> cantidadOperaciones;
+
+    for (int i = 0; i < cantidadOperaciones; i++) {
+
+        cout << "Ingrese el primer número: ";
+        cin >> num1;
+        cout << "Ingrese el segundo número: ";
+        cin >> num2;
+        cout << "Ingrese el operador (+, -, *, /, %): ";
+        cin >> operador;
+
+
+        realizarOperacion(num1, num2, operador);
+    }
+
+    return 0;
+}
+
+
+void realizarOperacion(int num1, int num2, char operador) {
+    int resultado;
+
+    switch (operador) {
+    case '+':
+        resultado = num1 + num2;
+        break;
+    case '-':
+        resultado = num1 - num2;
+        break;
+    case '*':
+        resultado = num1 * num2;
+        break;
+    case '/':
+        resultado = num1 / num2;
+        break;
+    case '%':
+        resultado = num1 % num2;
+        break;
+    default:
+        cout << "Operador inválido." << endl;
+        return;
+    }
+
+
+    imprimirResultado(resultado);
+}
+
+
+void imprimirResultado(int resultado) {
+    cout << "El resultado es: " << resultado << endl;
+}
