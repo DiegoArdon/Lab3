@@ -1,0 +1,131 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+bool esPrimo(int numero);
+bool esBisiesto(int year);
+double calcularPotencia(double base, int exponente);
+
+int main() {
+    char opcion;
+    do {
+        cout << "Menú:\n";
+        cout << "1. Operaciones aritméticas básicas\n";
+        cout << "2. Calcular potencia\n";
+        cout << "3. Verificar si un número es primo\n";
+        cout << "4. Verificar si un año es bisiesto\n";
+        cout << "5. Salir\n";
+        cout << "Seleccione una opción: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case '1': {
+            int numero1, numero2;
+
+            cout << "Ingrese el primer número: ";
+            cin >> numero1;
+
+            cout << "Ingrese el segundo número: ";
+            cin >> numero2;
+
+            int suma = numero1 + numero2;
+            int resta = numero1 - numero2;
+            int multiplicacion = numero1 * numero2;
+            int division = numero1 / numero2;
+
+            cout << "Resultados:" << endl;
+            cout << "Suma: " << suma << endl;
+            cout << "Resta: " << resta << endl;
+            cout << "Multiplicación: " << multiplicacion << endl;
+            cout << "División: " << division << endl;
+            break;
+        }
+        case '2': {
+            double base;
+            int exponente;
+
+            cout << "Ingrese la base: ";
+            cin >> base;
+
+            cout << "Ingrese el exponente: ";
+            cin >> exponente;
+
+            double resultado = calcularPotencia(base, exponente);
+
+            cout << "El resultado es: " << resultado << endl;
+            break;
+        }
+        case '3': {
+            int numero;
+            cout << "Ingrese un número: ";
+            cin >> numero;
+
+            if (esPrimo(numero)) {
+                cout << "El número es primo." << endl;
+            }
+            else {
+                cout << "El número no es primo." << endl;
+            }
+            break;
+        }
+        case '4': {
+            int year;
+            cout << "Ingrese un año: ";
+            cin >> year;
+
+            if (esBisiesto(year)) {
+                cout << year << " es un año bisiesto." << endl;
+            }
+            else {
+                cout << year << " no es un año bisiesto." << endl;
+            }
+            break;
+        }
+        case '5':
+            cout << "Saliendo del programa.\n";
+            break;
+        default:
+            cout << "Opción inválida. Por favor, seleccione una opción válida.\n";
+        }
+    } while (opcion != '5');
+
+    return 0;
+}
+
+bool esPrimo(int numero) {
+    if (numero <= 1) {
+        return false;
+    }
+
+    for (int i = 2; i * i <= numero; i++) {
+        if (numero % i == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool esBisiesto(int year) {
+    if (year % 4 == 0) {
+        if (year % 100 == 0) {
+            if (year % 400 == 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return true;
+        }
+    }
+    else {
+        return false;
+    }
+}
+
+double calcularPotencia(double base, int exponente) {
+    return pow(base, exponente);
+}
