@@ -70,15 +70,15 @@ int main() {
             break;
         }
         case '4': {
-            int year;
+            int año;
             cout << "Ingrese un año: ";
-            cin >> year;
+            cin >> año;
 
-            if (esBisiesto(year)) {
-                cout << year << " es un año bisiesto." << endl;
+            if (esBisiesto(año)) {
+                cout << año << " es un año bisiesto." << endl;
             }
             else {
-                cout << year << " no es un año bisiesto." << endl;
+                cout << año << " no es un año bisiesto." << endl;
             }
             break;
         }
@@ -107,10 +107,10 @@ bool esPrimo(int numero) {
     return true;
 }
 
-bool esBisiesto(int year) {
-    if (year % 4 == 0) {
-        if (year % 100 == 0) {
-            if (year % 400 == 0) {
+bool esBisiesto(int año) {
+    if (año % 4 == 0) {
+        if (año % 100 == 0) {
+            if (año % 400 == 0) {
                 return true;
             }
             else {
